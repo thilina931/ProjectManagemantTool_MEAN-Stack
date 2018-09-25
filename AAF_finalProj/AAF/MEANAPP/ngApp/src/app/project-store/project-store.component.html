@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-9">
+    <div *ngIf="!hiddenewProject">
+      <h2>New Project</h2>
+      <form #form="ngForm" (ngSubmit)="onSubmitADDProject(form.value) " class="well">
+       <div class="form-group">
+         <label> Project Title </label>
+         <input type="text"class="form-control" required name="projectTitle"ngModel>
+       </div>
+       <div class="form-group"> 
+         <label>Url</label>
+         <input type="text" class="form-control" required name="url" ngModel>
+         
+       </div>
+       <div class="form-group">
+         <label>Description</label>
+         <input type="text" class="form-control" name="description" ngModel>
+       </div>
+       <button type="submit" class="btn btn-success"> SAVE </button> 
+      </form>
+     
+    </div>
+    <project-details (updateProjectEvent)="onUpdateProjectEvent($event)" 
+                     (deleteProjectEvent)="onDeleteProjectEvent($event)"
+    *ngIf="selectedProject && hiddenewProject"
+     [project]="selectedProject" > 
+    </project-details>
+  </div>
+  <div class="col-sm-3">
+    <button (click)="newproject()" style="margin-bottom: 3px;" type="button" class="btn  btn-success btn-block">+Add New project+ </button>
+    <project-list (SelectProject)="onSelectProject($event)" [projects]="projects"></project-list>
+  </div>
+</div> 

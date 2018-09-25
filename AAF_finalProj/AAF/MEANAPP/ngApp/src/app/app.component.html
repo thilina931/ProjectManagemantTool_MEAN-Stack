@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+         <div class="navbar-heder">
+           <a class="navbar-brand" href="#">project-Store</a>
+         </div>
+         <ul class="nav navbar-nav">
+           <li *ngIf ="authService.loggedIn()"><a routerLink="/home"routerLinkActive="active">Home</a> </li>
+           <li *ngIf ="authService.loggedIn()"><a routerLink="/projects"routerLinkActive="active">projectList</a> </li>
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+          <li *ngIf ="!authService.loggedIn()"><a routerLink="/login"routerLinkActive="active">login</a> </li>
+          <li *ngIf ="!authService.loggedIn()"><a routerLink="/register"routerLinkActive="active">register</a> </li>
+          <li *ngIf ="authService.loggedIn()"><a (click)="onLogoutClick() " href="#">Logout </a> </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container">
+    
+    <router-outlet> </router-outlet>
+  </div>
+  
+  

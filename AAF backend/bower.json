@@ -1,0 +1,11 @@
+{
+  "name": "ng-app",
+  "description": "projectManagemntTool",
+  "main": "",
+  "authors": [
+    "Thilina"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true
+}
